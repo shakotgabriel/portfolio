@@ -124,3 +124,10 @@
     @apply bg-background text-foreground;
   }
 }
+body {
+  font-family: var(--font-shadows), cursive; /* Shadows Into Light for body text */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-federant), cursive; /* Federant for headings */
+}
