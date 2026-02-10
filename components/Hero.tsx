@@ -111,7 +111,7 @@ const Hero = () => {
          
           <div className="flex gap-4 justify-center md:justify-start">
             <a
-              href="https://www.instagram.com/yourusername"
+              href="https://www.instagram.com/shakot_g"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-pink-400 transition-all duration-300 text-3xl hover:scale-110 transform"
@@ -119,7 +119,7 @@ const Hero = () => {
               <AiFillInstagram />
             </a>
             <a
-              href="https://www.linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/chakuothbel-g-daniel-046b22179"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-blue-400 transition-all duration-300 text-3xl hover:scale-110 transform"
@@ -127,7 +127,7 @@ const Hero = () => {
               <AiFillLinkedin />
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/shakotgabriel"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-gray-300 transition-all duration-300 text-3xl hover:scale-110 transform"
