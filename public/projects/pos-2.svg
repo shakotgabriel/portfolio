@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a2e"/>
+      <stop offset="100%" style="stop-color:#2d1b69"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="20" y="20" width="480" height="410" rx="8" fill="#3c1f7b" opacity="0.3"/>
+  <rect x="40" y="40" width="440" height="50" rx="6" fill="#5b21b6" opacity="0.4"/>
+  <rect x="60" y="55" width="200" height="20" rx="3" fill="#7c3aed" opacity="0.5"/>
+  <rect x="40" y="110" width="200" height="50" rx="6" fill="#5b21b6" opacity="0.3"/>
+  <rect x="260" y="110" width="200" height="50" rx="6" fill="#5b21b6" opacity="0.3"/>
+  <rect x="40" y="180" width="200" height="50" rx="6" fill="#5b21b6" opacity="0.3"/>
+  <rect x="260" y="180" width="200" height="50" rx="6" fill="#5b21b6" opacity="0.3"/>
+  <rect x="40" y="250" width="200" height="50" rx="6" fill="#5b21b6" opacity="0.3"/>
+  <rect x="260" y="250" width="200" height="50" rx="6" fill="#5b21b6" opacity="0.3"/>
+  <rect x="40" y="320" width="440" height="2" fill="#7c3aed" opacity="0.3"/>
+  <rect x="40" y="340" width="200" height="30" rx="4" fill="#7c3aed" opacity="0.4"/>
+  <rect x="300" y="340" width="180" height="40" rx="8" fill="#7c3aed"/>
+  <rect x="520" y="20" width="260" height="410" rx="8" fill="#3c1f7b" opacity="0.4"/>
+  <rect x="540" y="40" width="220" height="25" rx="4" fill="#7c3aed" opacity="0.5"/>
+  <rect x="540" y="80" width="220" height="40" rx="6" fill="#5b21b6" opacity="0.2"/>
+  <rect x="540" y="130" width="220" height="40" rx="6" fill="#5b21b6" opacity="0.2"/>
+  <rect x="540" y="180" width="220" height="40" rx="6" fill="#5b21b6" opacity="0.2"/>
+  <rect x="540" y="230" width="220" height="40" rx="6" fill="#5b21b6" opacity="0.2"/>
+  <rect x="540" y="290" width="220" height="2" fill="#7c3aed" opacity="0.3"/>
+  <rect x="540" y="310" width="120" height="25" rx="4" fill="#7c3aed" opacity="0.6"/>
+  <rect x="540" y="350" width="220" height="60" rx="6" fill="#7c3aed" opacity="0.3"/>
+  <text x="400" y="440" text-anchor="middle" fill="#7c3aed" font-family="sans-serif" font-size="14" opacity="0.7">POS System — Checkout & Cart</text>
+</svg>
