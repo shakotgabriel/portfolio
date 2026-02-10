@@ -1,14 +1,40 @@
 import Header from "@/components/header";
+import Hero from "@/components/Hero";
+import ProjectsPage from "@/components/Projects";
+import TimelinePage from "@/components/Timeline";
+import SkillsPage from "@/components/Skills";
+import ContactPage from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-zinc-50 dark:bg-black font-sans">
-      {/* Header Only */}
+    <div className="flex flex-col min-h-screen bg-black">
       <Header />
 
-      {/* Empty placeholder for now */}
-      <main className="flex-1 flex items-center justify-center">
-        {/* You can add your hero/sections here later */}
+      <main className="flex-1">
+     
+        <div id="home">
+          <Hero />
+        </div>
+
+        
+        <div id="projects">
+          <ProjectsPage />
+        </div>
+
+       
+        <div id="timeline">
+          <TimelinePage />
+        </div>
+
+     
+        <div id="skills">
+          <SkillsPage />
+        </div>
+
+       
+        <div id="contact">
+          <ContactPage />
+        </div>
       </main>
     </div>
   );

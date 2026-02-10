@@ -39,10 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${federant.variable} ${greatVibes.variable} antialiased`}
-      >
+    <html lang="en" className={`dark ${federant.variable} ${greatVibes.variable}`}>
+      <body className="bg-black">
         {children}
       </body>
     </html>
