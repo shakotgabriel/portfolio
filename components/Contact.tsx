@@ -34,14 +34,14 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@shakot.dev',
-      href: 'mailto:hello@shakot.dev',
+      value: 'shakotgabriel1@gmail.com',
+      href: 'mailto:shakotgabriel1@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+254 712 345 678',
-      href: 'tel:+254712345678',
+      value: '+254 717 620 509',
+      href: 'tel:+254717620509',
     },
     {
       icon: MapPin,
@@ -61,13 +61,13 @@ export default function ContactPage() {
     {
       icon: AiFillLinkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: 'https://www.linkedin.com/in/chakuothbel-g-daniel-046b22179/',
       color: 'hover:text-blue-400',
     },
     {
       icon: AiFillInstagram,
       label: 'Instagram',
-      href: 'https://instagram.com',
+      href: 'https://www.instagram.com/shakot_g',
       color: 'hover:text-pink-400',
     },
   ]
