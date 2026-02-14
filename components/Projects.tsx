@@ -42,6 +42,8 @@ const projects = [
     accent: "text-rose-400",
     accentBg: "bg-rose-500/10 border-rose-500/20 text-rose-300",
     glowColor: "bg-rose-500/20",
+    githubUrl: "https://github.com/shakotgabriel/EJAR-PROPERTY-",
+    liveUrl: "https://ejar-property.onrender.com",
     number: "01",
   },
   {
@@ -73,6 +75,8 @@ const projects = [
     accent: "text-emerald-400",
     accentBg: "bg-emerald-500/10 border-emerald-500/20 text-emerald-300",
     glowColor: "bg-emerald-500/20",
+    githubUrl: "https://github.com/shakotgabriel",
+    liveUrl: "https://shakotgabriel.com",
     number: "02",
   },
   {
@@ -104,6 +108,8 @@ const projects = [
     accent: "text-violet-400",
     accentBg: "bg-violet-500/10 border-violet-500/20 text-violet-300",
     glowColor: "bg-violet-500/20",
+    githubUrl: "https://github.com/shakotgabriel/Possystem",
+    liveUrl: "https://github.com/shakotgabriel/Possystem",
     number: "03",
   },
   
@@ -429,7 +435,9 @@ function ProjectSection({
               className="flex gap-3 pt-4"
             >
               <motion.a
-                href="#"
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
@@ -438,7 +446,9 @@ function ProjectSection({
                 Source Code
               </motion.a>
               <motion.a
-                href="#"
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
