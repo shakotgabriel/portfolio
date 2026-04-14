@@ -1,64 +1,62 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Briefcase, Code, GraduationCap } from 'lucide-react'
+import { Code, GraduationCap, Rocket, BookOpen, Layers } from 'lucide-react'
 import { useRef } from 'react'
-
-
 
 const timelineData = [
   {
     year: '2025 – Present',
     type: 'work',
-    title: 'Junior Full-Stack Developer',
-    company: 'Freelance / Personal Projects',
+    title: 'Full-Stack Developer',
+    company: 'Freelance & Projects',
     description:
-      'Building and deploying full-stack applications using React, Next.js, Node.js, Express, and PostgreSQL. Working on fintech and healthcare systems including Tanina and CareConnect.',
-    icon: Briefcase,
+      'Building and deploying production applications across web and mobile. Experienced with real-world deployments, debugging production issues, React Native / Expo mobile apps, and enterprise backend systems.',
+    icon: Rocket,
   },
   {
-    year: '2024 – 2025',
-    type: 'project',
-    title: 'Lead Developer',
-    company: 'Tanina Financial Platform',
+    year: '2025',
+    type: 'work',
+    title: 'Full-Stack Transition',
+    company: 'Backend Expansion',
     description:
-      'Developing a digital money transfer platform integrating mobile money, banking APIs, and transaction services using microservices architecture.',
-    icon: Code,
+      'Expanded into backend development with Node.js, Express, and Java. Worked with PostgreSQL and MongoDB. Built full systems like Tanina, a fintech platform. Transformed from frontend dev to full-stack engineer.',
+    icon: Layers,
   },
   {
     year: '2024',
     type: 'project',
-    title: 'System Developer',
-    company: 'CareConnect Hospital Management System',
+    title: 'Frontend Developer',
+    company: 'Building Real Applications',
     description:
-      'Designed and built a hospital management system with modules for patients, doctors, billing, pharmacy, and appointments using React and Tailwind.',
+      'Started building real projects as a frontend developer using React and Tailwind CSS. Built systems like CareConnect, a Hospital Management System. Shifted from learning to building real applications.',
     icon: Code,
-  },
-  {
-    year: '2022 – Present',
-    type: 'education',
-    title: 'Bachelor of Science in Computer Information Systems',
-    company: 'Kenya Methodist University',
-    description:
-      'Studying software development, databases, networking, and information systems security. Gained strong skills in full-stack development and system design.',
-    icon: GraduationCap,
   },
   {
     year: '2023',
     type: 'education',
-    title: 'Frontend Engineering Professional Path',
-    company: 'Frontend Masters',
+    title: 'Intensive Learning Phase',
+    company: 'Udemy / Coursera / Frontend Masters',
     description:
-      'Completed professional frontend training covering JavaScript, modern frameworks, performance, and UI engineering best practices.',
+      'Took professional online courses focused on JavaScript, modern frontend development, and best practices. This is where skills became solid and industry-relevant.',
+    icon: BookOpen,
+  },
+  {
+    year: '2022',
+    type: 'education',
+    title: 'University + Foundation',
+    company: 'Kenya Methodist University',
+    description:
+      'Began formal studies in Computer Information Systems. Strengthened programming fundamentals and problem-solving skills. Combined university education with self-learning.',
     icon: GraduationCap,
   },
   {
-    year: '2021 – 2022',
+    year: '2021',
     type: 'learning',
-    title: 'Web Development Journey Began',
-    company: 'Self-Taught / Online Platforms',
+    title: 'Early Curiosity',
+    company: 'Self-Taught',
     description:
-      'Started building websites and applications, learning HTML, CSS, JavaScript, WordPress, and Linux server environments.',
+      'Started learning HTML, CSS, and basic programming concepts. Built initial interest in software development and began the journey into tech.',
     icon: Code,
   },
 ]
@@ -102,7 +100,7 @@ export default function TimelinePage() {
           </p>
           <h2 className="text-5xl font-bold text-white md:text-6xl lg:text-7xl">
             My{' '}
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-rrom-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
               Timeline
             </span>
           </h2>
@@ -111,7 +109,7 @@ export default function TimelinePage() {
    
         <div className="relative">
      
-          <div className="absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 bg-gradient-to-b from-purple-500/20 via-cyan-500/20 to-purple-500/20" />
+          <div className="absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 bg-linear-to-b from-purple-500/20 via-cyan-500/20 to-purple-500/20" />
 
           <div className="space-y-12">
             {timelineData.map((item, index) => {
@@ -168,7 +166,11 @@ export default function TimelinePage() {
                       className={`flex h-12 w-12 items-center justify-center rounded-full border-4 border-black ${
                         item.type === 'work'
                           ? 'bg-purple-500'
-                          : 'bg-cyan-500'
+                          : item.type === 'project'
+                          ? 'bg-blue-500'
+                          : item.type === 'education'
+                          ? 'bg-cyan-500'
+                          : 'bg-emerald-500'
                       }`}
                     >
                       <Icon className="h-6 w-6 text-white" />

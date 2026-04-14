@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Mail, MapPin, Phone, Send } from 'lucide-react'
+import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from 'react-icons/ai'
 import { useRef, useState } from 'react'
 import { Input } from '@/components/ui/input'
@@ -23,11 +23,35 @@ export default function ContactPage() {
     email: '',
     message: '',
   })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
- 
-    console.log('Form submitted:', formData)
+    setStatus('loading')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch (err) {
+      setStatus('error')
+      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong')
+      setTimeout(() => setStatus('idle'), 5000)
+    }
   }
 
   const contactInfo = [
@@ -99,7 +123,7 @@ export default function ContactPage() {
           </p>
           <h2 className="text-5xl font-bold text-white md:text-6xl lg:text-7xl">
             Let&apos;s{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Connect
             </span>
           </h2>
@@ -227,13 +251,39 @@ export default function ContactPage() {
                 />
               </div>
 
+              {status === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 rounded-lg bg-green-500/10 border border-green-500/20 p-3 text-green-400 text-sm"
+                >
+                  <CheckCircle className="h-4 w-4" />
+                  Message sent successfully! I&apos;ll get back to you soon.
+                </motion.div>
+              )}
+
+              {status === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 rounded-lg bg-red-500/10 border border-red-500/20 p-3 text-red-400 text-sm"
+                >
+                  <AlertCircle className="h-4 w-4" />
+                  {errorMsg}
+                </motion.div>
+              )}
+
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600"
+                  disabled={status === 'loading'}
+                  className="w-full bg-linear-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {status === 'loading' ? (
+                    <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...</>
+                  ) : (
+                    <><Send className="mr-2 h-4 w-4" /> Send Message</>
+                  )}
                 </Button>
               </motion.div>
             </form>

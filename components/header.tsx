@@ -1,29 +1,22 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, Code, Clock, Star, Mail } from 'lucide-react'
+import { Menu, Code, Clock, Star, Mail, Home } from 'lucide-react'
 import { useState } from 'react'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { label: 'Projects', href: '#projects', icon: <Code className="w-5 h-5 text-white" /> },
-    { label: 'Timeline', href: '#timeline', icon: <Clock className="w-5 h-5 text-white" /> },
-    { label: 'Skills', href: '#skills', icon: <Star className="w-5 h-5 text-white" /> },
-    { label: 'Contact', href: '#contact', icon: <Mail className="w-5 h-5 text-white" /> },
+    { label: 'Home', href: '/', icon: <Home className="w-5 h-5 text-white" />, isPage: true },
+    { label: 'Projects', href: '/projects', icon: <Code className="w-5 h-5 text-white" />, isPage: true },
+    { label: 'Timeline', href: '/#timeline', icon: <Clock className="w-5 h-5 text-white" />, isPage: true },
+    { label: 'Skills', href: '/#skills', icon: <Star className="w-5 h-5 text-white" />, isPage: true },
+    { label: 'Contact', href: '/#contact', icon: <Mail className="w-5 h-5 text-white" />, isPage: true },
   ]
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
-      setIsOpen(false)
-    }
+  const handleNav = () => {
+    setIsOpen(false)
   }
 
   return (
@@ -41,7 +34,7 @@ const Header = () => {
               <motion.a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleScroll(e, item.href)}
+                onClick={handleNav}
                 whileHover={{ scale: 1.05 }}
                 className="relative flex flex-col items-center group"
               >
@@ -83,7 +76,7 @@ const Header = () => {
                   <a
                     key={item.label}
                     href={item.href}
-                    onClick={(e) => handleScroll(e, item.href)}
+                    onClick={handleNav}
                     className="flex items-center gap-2 text-sm font-semibold text-white hover:text-primary hover:bg-white/10 p-2 rounded-md transition-all"
                   >
                     {item.icon}

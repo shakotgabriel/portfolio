@@ -1,6 +1,5 @@
 import Header from "@/components/header";
 import Hero from "@/components/Hero";
-import ProjectsPage from "@/components/Projects";
 import TimelinePage from "@/components/Timeline";
 import SkillsPage from "@/components/Skills";
 import ContactPage from "@/components/Contact";
@@ -17,10 +16,6 @@ export default function Home() {
         </div>
 
         
-        <div id="projects">
-          <ProjectsPage />
-        </div>
-
        
         <div id="timeline">
           <TimelinePage />

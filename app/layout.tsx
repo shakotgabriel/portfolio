@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`dark ${federant.variable} ${greatVibes.variable}`}>
-      <body className="bg-black">
+      <body className="bg-black" suppressHydrationWarning>
         {children}
       </body>
     </html>

@@ -188,7 +188,7 @@ const Hero = () => {
                 variants={statCardVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.1, ease: easeOut }}
-                className={`bg-gradient-to-br ${card.bg} border p-4 sm:p-6 rounded-xl backdrop-blur-sm flex flex-col items-center justify-center text-center`}
+                className={`bg-linear-to-br ${card.bg} border p-4 sm:p-6 rounded-xl backdrop-blur-sm flex flex-col items-center justify-center text-center`}
               >
                 <span className={`text-3xl sm:text-4xl md:text-5xl font-bold ${card.text}`}>{card.value}</span>
                 <span className="mt-2 text-xs sm:text-sm md:text-base text-white/80">
@@ -200,7 +200,7 @@ const Hero = () => {
 
           <div className="pt-6 flex justify-center md:justify-start">
             <a
-              href="/Chakouthbel-Daniel_CV.pdf"
+              href="/Chakouthbel_Gabriel_CV_MTN_v2.docx"
               download
               className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-200 transition-all duration-300 hover:border-cyan-300 hover:bg-cyan-500/20"
             >
