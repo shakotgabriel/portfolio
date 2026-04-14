@@ -8,7 +8,6 @@ import {
   SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
-  SiFramer,
   SiNodedotjs,
   SiDjango,
   SiNestjs,
@@ -16,19 +15,18 @@ import {
   SiMongodb,
   SiDocker,
   SiGit,
-  SiAmazon,
   SiGithubactions,
   SiLinux,
   SiJest,
-  SiExpress,
-  SiPython,
-  SiJavascript,
+  SiSpringboot,
   SiPostman,
   SiGraphql,
   SiPrisma,
   SiRedis,
   SiMysql,
   SiElectron,
+  SiJenkins,
+  SiKubernetes,
 } from 'react-icons/si'
 
 
@@ -43,7 +41,7 @@ const skillCategories = [
       { name: 'Electron', icon: SiElectron },
       { name: 'TypeScript', icon: SiTypescript },
       { name: 'Tailwind CSS', icon: SiTailwindcss },
-      { name: 'Framer Motion', icon: SiFramer },
+      
       { name: 'Zustand', icon: SiReact },
     ],
   },
@@ -54,9 +52,9 @@ const skillCategories = [
       { name: 'Node.js', icon: SiNodedotjs },
       { name: 'Django', icon: SiDjango },
       { name: 'NestJS', icon: SiNestjs },
-      { name: 'Express.js', icon: SiExpress },
-      { name: 'Python', icon: SiPython },
-      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'Spring Boot', icon: SiSpringboot },
+
+  
     ],
   },
   {
@@ -78,10 +76,12 @@ const skillCategories = [
     skills: [
       { name: 'Docker', icon: SiDocker },
       { name: 'Git', icon: SiGit },
-      { name: 'AWS', icon: SiAmazon },
+
       { name: 'GitHub Actions', icon: SiGithubactions },
       { name: 'Linux', icon: SiLinux },
       { name: 'Jest', icon: SiJest },
+      { name: 'Jenkins', icon: SiJenkins },
+      { name: 'Kubernetes', icon: SiKubernetes },
     ],
   },
 ]
@@ -125,7 +125,7 @@ export default function SkillsPage() {
           </p>
           <h2 className="text-5xl font-bold text-white md:text-6xl lg:text-7xl">
             Technical{' '}
-            <span className="bg-gradient-to-r from-cyan-400 via-green-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-400 via-green-400 to-purple-400 bg-clip-text text-transparent">
               Skills
             </span>
           </h2>
@@ -143,7 +143,7 @@ export default function SkillsPage() {
                 className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
               >
                 <h3
-                  className={`mb-6 text-2xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
+                  className={`mb-6 text-2xl font-bold bg-linear-to-r ${category.color} bg-clip-text text-transparent`}
                 >
                   {category.title}
                 </h3>

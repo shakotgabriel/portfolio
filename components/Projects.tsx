@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import {
   motion,
@@ -9,9 +8,61 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Github, X, Download } from "lucide-react";
 
 const projects = [
+  {
+    title: "Tanina",
+    subtitle: "Fintech Platform",
+    description:
+      "A scalable fintech platform managing user accounts, digital wallets, payments, transactions, analytics, notifications, and administrative operations. Built with a modern microservices architecture using Java 21+ and Spring Boot 3, emphasizing security and high performance for robust financial services delivery.",
+    techStack: [
+      "Java 21+",
+      "Spring Boot 3",
+      "Microservices",
+      "PostgreSQL",
+      "React Native",
+      "TypeScript",
+      "JWT/OAuth",
+    ],
+    images: [
+      "/projects/tanina1.jpeg",
+      "/projects/tanina3.jpeg",
+      "/projects/tanina4.jpeg",
+      "/projects/tanina5.jpeg",
+    ],
+    captions: [
+      "User Dashboard & Wallet Overview",
+      "Payment Processing Interface",
+      "Transaction History & Analytics",
+      "Admin Operations Panel",
+    ],
+    gradient: "from-amber-500/30 via-orange-500/10 to-transparent",
+    accent: "text-amber-400",
+    accentBg: "bg-amber-500/10 border-amber-500/20 text-amber-300",
+    glowColor: "bg-amber-500/20",
+    githubUrl: "https://github.com/shakotgabriel/tanina-mobile",
+    liveUrl: "https://github.com/shakotgabriel/tanina-mobile",
+    apkUrl: "/projects/Taninademo",
+    number: "01",
+    features: [
+      "Microservices architecture with independent deployment",
+      "Digital wallet with balance management & transaction history",
+      "Secure payment processing with third-party gateway integration",
+      "Real-time analytics & spending pattern visualization",
+      "Push/email/SMS notifications for transactions & alerts",
+      "Admin dashboard for user management & auditing",
+    ],
+    demoCredentials: {
+      password: "Tanina@Demo2026!",
+      users: [
+        { role: "Customer", phone: "abuk.customer@example.com" },
+        { role: "Customer", phone: "mabior.customer@example.com" },
+        { role: "Merchant", phone: "nyamal.merchant@example.com" },
+        { role: "Agent", phone: "achol.agent@example.com" },
+      ],
+    },
+  },
   {
     title: "Ejar",
     subtitle: "Real Estate Marketplace",
@@ -44,40 +95,14 @@ const projects = [
     glowColor: "bg-rose-500/20",
     githubUrl: "https://github.com/shakotgabriel/EJAR-PROPERTY-",
     liveUrl: "https://ejar-property.onrender.com",
-    number: "01",
-  },
-  {
-    title: "CareConnect",
-    subtitle: "Hospital Management Platform",
-    description:
-      "A comprehensive hospital management system streamlining patient registration, appointment scheduling, medical records, and staff management. Built with React, Node.js REST API, and PostgreSQL. Features role-based access for doctors, nurses, and admin staff.",
-    techStack: [
-      "React",
-      "Node.js",
-      "Express.js",
-      "PostgreSQL",
-      "Tailwind CSS",
-      "JWT Auth",
-    ],
-    images: [
-      "/projects/careconnect-1.svg",
-      "/projects/careconnect-2.svg",
-      "/projects/careconnect-3.svg",
-      "/projects/careconnect-4.svg",
-    ],
-    captions: [
-      "Patient Dashboard",
-      "Appointment Scheduling",
-      "Medical Records",
-      "Staff & Admin Panel",
-    ],
-    gradient: "from-emerald-500/30 via-teal-500/10 to-transparent",
-    accent: "text-emerald-400",
-    accentBg: "bg-emerald-500/10 border-emerald-500/20 text-emerald-300",
-    glowColor: "bg-emerald-500/20",
-    githubUrl: "https://github.com/shakotgabriel",
-    liveUrl: "https://shakotgabriel.com",
     number: "02",
+    features: [
+      "Advanced search with geolocation & spatial filters",
+      "Real-time chat between buyers and property owners",
+      "PostGIS-powered location-based property discovery",
+      "Zustand state management for seamless UX",
+      "Role-based dashboards for users and admins",
+    ],
   },
   {
     title: "POS System",
@@ -111,6 +136,54 @@ const projects = [
     githubUrl: "https://github.com/shakotgabriel/Possystem",
     liveUrl: "https://github.com/shakotgabriel/Possystem",
     number: "03",
+    features: [
+      "Offline capability with local SQLite database",
+      "Barcode scanning for quick product lookup",
+      "Real-time inventory tracking and alerts",
+      "Receipt printing with customizable templates",
+      "Automatic cloud sync when online",
+      "Multi-platform desktop deployment via Electron",
+    ],
+  },
+  {
+    title: "CareConnect",
+    subtitle: "Hospital Management Platform",
+    description:
+      "A comprehensive hospital management system streamlining patient registration, appointment scheduling, medical records, and staff management. Built with React, Node.js REST API, and PostgreSQL. Features role-based access for doctors, nurses, and admin staff.",
+    techStack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "JWT Auth",
+    ],
+    images: [
+      "/projects/careconnect-1.svg",
+      "/projects/careconnect-2.svg",
+      "/projects/careconnect-3.svg",
+      "/projects/careconnect-4.svg",
+    ],
+    captions: [
+      "Patient Dashboard",
+      "Appointment Scheduling",
+      "Medical Records",
+      "Staff & Admin Panel",
+    ],
+    gradient: "from-emerald-500/30 via-teal-500/10 to-transparent",
+    accent: "text-emerald-400",
+    accentBg: "bg-emerald-500/10 border-emerald-500/20 text-emerald-300",
+    glowColor: "bg-emerald-500/20",
+    githubUrl: "https://github.com/shakotgabriel",
+    liveUrl: "https://shakotgabriel.com",
+    number: "04",
+    features: [
+      "Patient registration with digital intake forms",
+      "Appointment scheduling with calendar integration",
+      "Electronic medical records (EMR) management",
+      "Role-based access for doctors, nurses, and admin",
+      "Staff management and shift scheduling",
+    ],
   },
   
 ];
@@ -126,17 +199,25 @@ function ImageCarousel({
   accent: string;
 }) {
   const [current, setCurrent] = useState(0);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "Escape") setLightboxOpen(false);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightboxOpen, current, prev, next]);
+
   return (
     <div className="relative w-full">
-      <div
-        className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/50 shadow-2xl shadow-black/50 cursor-pointer group"
-        onClick={() => setIsFullscreen(true)}
-      >
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10 bg-black/50 shadow-2xl shadow-black/50">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -144,26 +225,17 @@ function ImageCarousel({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.08 }}
             transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 0.4] }}
-            className="absolute inset-0"
+            className="absolute inset-0 cursor-zoom-in"
+            onClick={() => setLightboxOpen(true)}
           >
             <Image
               src={images[current]}
               alt={captions[current]}
               fill
               sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+              className="object-cover"
+              priority
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                className="rounded-full bg-white/20 p-3 backdrop-blur-sm group-hover:bg-white/30 transition-colors"
-              >
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6v12h12v-6m7-5v12m0 0v4m0-4h4m-4 0h-4" />
-                </svg>
-              </motion.div>
-            </div>
           </motion.div>
         </AnimatePresence>
 
@@ -188,82 +260,12 @@ function ImageCarousel({
           <ChevronRight className="h-5 w-5 text-white" />
         </button>
 
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent px-5 py-4">
+        <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/90 via-black/40 to-transparent px-5 py-4">
           <p className={`text-sm font-medium ${accent}`}>
             {captions[current]}
           </p>
         </div>
       </div>
-
-      <AnimatePresence>
-        {isFullscreen && typeof window !== 'undefined' && createPortal(
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsFullscreen(false)}
-            className="fixed inset-0 z-[9999] bg-black/95 w-screen h-screen"
-            style={{ padding: 0, margin: 0 }}
-          >
-            <motion.div
-              initial={{ scale: 0.98, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.98, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-full h-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={images[current]}
-                alt={captions[current]}
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority
-                style={{
-                  objectFit: 'cover',
-                  objectPosition: 'center',
-                  zIndex: 10,
-                }}
-              />
-
-              <button
-                onClick={() => setIsFullscreen(false)}
-                className="absolute top-6 right-6 rounded-full bg-white/10 p-3 backdrop-blur-md transition-all hover:bg-white/20 z-20"
-              >
-                <svg className="h-7 w-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  prev();
-                }}
-                className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-4 backdrop-blur-md transition-all hover:bg-white/20 z-20"
-              >
-                <ChevronLeft className="h-7 w-7 text-white" />
-              </button>
-
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  next();
-                }}
-                className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-4 backdrop-blur-md transition-all hover:bg-white/20 z-20"
-              >
-                <ChevronRight className="h-7 w-7 text-white" />
-              </button>
-
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-base backdrop-blur-md bg-black/30 px-6 py-3 rounded-full z-20">
-                {current + 1} / {images.length}
-              </div>
-            </motion.div>
-          </motion.div>,
-          document.body
-        )}
-      </AnimatePresence>
 
       <div className="mt-4 flex gap-2">
         {images.map((img, i) => (
@@ -286,6 +288,55 @@ function ImageCarousel({
           </button>
         ))}
       </div>
+
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+            onClick={() => setLightboxOpen(false)}
+          >
+            <button
+              onClick={(e) => { e.stopPropagation(); setLightboxOpen(false); }}
+              className="absolute top-4 right-4 z-[60] rounded-full bg-white/10 p-2 text-white hover:bg-white/20"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); prev(); }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); next(); }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 z-50"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+            <motion.div
+              initial={{ scale: 0.92 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.92 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative flex items-center justify-center w-[90vw] h-[85vh]"
+            >
+              <Image
+                src={images[current]}
+                alt={captions[current]}
+                fill
+                className="object-contain"
+                sizes="90vw"
+              />
+            </motion.div>
+            <p className={`absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-sm font-medium ${accent} bg-black/50 px-4 py-2 rounded-full backdrop-blur-md z-50`}>
+              {captions[current]}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -364,7 +415,7 @@ function ProjectSection({
           }`}
         >
         
-          <motion.div style={{ y: contentY }} className="flex-1 space-y-6">
+          <motion.div style={{ y: contentY }} className="flex-1 min-w-0 space-y-6">
           
             <motion.div
               initial={{ opacity: 0, x: isReversed ? 40 : -40 }}
@@ -404,7 +455,36 @@ function ProjectSection({
               {project.description}
             </motion.p>
 
-          
+            {/* Features List */}
+            {project.features && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                viewport={{ once: true }}
+                className="space-y-2"
+              >
+                <h4 className="text-sm font-medium text-white/50 uppercase tracking-wider">
+                  Key Features
+                </h4>
+                <ul className="space-y-1.5">
+                  {project.features.map((feature, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 + i * 0.05, duration: 0.4 }}
+                      viewport={{ once: true }}
+                      className="flex items-start gap-2 text-sm text-white/60"
+                    >
+                      <span className={`mt-1.5 h-1.5 w-1.5 rounded-full ${project.accent.replace('text-', 'bg-').replace('400', '500')}`} />
+                      {feature}
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -445,22 +525,67 @@ function ProjectSection({
                 <Github className="h-4 w-4" />
                 Source Code
               </motion.a>
-              <motion.a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-              >
-                <ExternalLink className="h-4 w-4" />
-                Live Demo
-              </motion.a>
+              {project.apkUrl ? (
+                <motion.a
+                  href={project.apkUrl}
+                  download
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                >
+                  <Download className="h-4 w-4" />
+                  Download App
+                </motion.a>
+              ) : (
+                <motion.a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  Live Demo
+                </motion.a>
+              )}
             </motion.div>
+
+            {/* Demo Credentials */}
+            {"demoCredentials" in project && project.demoCredentials && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                viewport={{ once: true }}
+                className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm"
+              >
+                <h4 className="text-sm font-medium text-white/50 uppercase tracking-wider mb-3">
+                  Demo Login Credentials
+                </h4>
+                <p className="text-xs text-white/40 mb-2">
+                  Download the APK and use any of these accounts to explore the app:
+                </p>
+                <div className="space-y-1.5">
+                  {project.demoCredentials.users.map((user: { role: string; phone: string }) => (
+                    <div key={user.phone} className="flex items-center gap-2 text-sm">
+                      <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${project.accentBg}`}>
+                        {user.role}
+                      </span>
+                      <span className="text-white/70 font-mono text-xs">{user.phone}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-3 flex items-center gap-2 rounded-lg bg-white/5 px-3 py-2">
+                  <span className="text-xs text-white/40">Password:</span>
+                  <code className="text-xs font-mono text-amber-300">{project.demoCredentials.password}</code>
+                </div>
+              </motion.div>
+            )}
           </motion.div>
 
      
-          <motion.div style={{ y: imageY }} className="flex-1 lg:max-w-[55%]">
+          <motion.div style={{ y: imageY }} className="flex-1 min-w-0 lg:max-w-[80%] w-full">
             <motion.div
               initial={{ opacity: 0, x: isReversed ? -60 : 60, rotateY: isReversed ? 5 : -5 }}
               whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
@@ -484,7 +609,7 @@ function ProjectSection({
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
           viewport={{ once: true }}
-          className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent origin-left"
+          className="h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent origin-left"
         />
       </div>
     </section>
@@ -500,7 +625,7 @@ function ScrollProgress() {
       <div className="relative h-32 w-[2px] rounded-full bg-white/10 overflow-hidden">
         <motion.div
           style={{ scaleY, transformOrigin: "top" }}
-          className="absolute inset-0 bg-gradient-to-b from-blue-400 to-violet-400 rounded-full"
+          className="absolute inset-0 bg-linear-to-b from-blue-400 to-violet-400 rounded-full"
         />
       </div>
       {projects.map((p, i) => (
@@ -548,7 +673,7 @@ export default function ProjectsPage() {
             className="text-5xl font-bold text-white sm:text-6xl md:text-7xl lg:text-8xl"
           >
             Featured{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 via-violet-400 to-purple-500 bg-clip-text text-transparent">
               Projects
             </span>
           </motion.h1>

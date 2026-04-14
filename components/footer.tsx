@@ -28,10 +28,10 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2"
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">
+            <div className="w-10 h-10 rounded-lg bg-linear-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">
               CG
             </div>
-            <span className="text-lg font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            <span className="text-lg font-bold bg-linear-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
               Chakuothbel
             </span>
           </motion.div>
@@ -52,7 +52,7 @@ const Header = () => {
               >
                 {item.label}
                 <motion.span
-                  className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-accent"
+                  className="absolute bottom-0 left-0 h-0.5 bg-linear-to-r from-primary to-accent"
                   whileHover={{ width: '100%' }}
                   initial={{ width: 0 }}
                   transition={{ duration: 0.3 }}
